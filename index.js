@@ -2,9 +2,13 @@ const express = require('express')
 const blogServer = express()
 const port = 3000
 
+// Listen
 blogServer.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
 })
+
+// Elementi Statici
+blogServer.use(express.static('public'))
 
 // Rotte
 blogServer.get('/', (req, res) => {
@@ -50,4 +54,3 @@ blogServer.get('/', (req, res) => {
 blogServer.get('/bacheca', (req, res) => {
     res.json(postsArray)
 })
-
